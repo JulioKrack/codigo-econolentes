@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Perfil usuario.css">
+    <title>Perfil Usuario</title>
+</head>
+<body>
+    <div id="container"><div></div>
+        <div class="columna1">
+            <div class="img-login">
+                <img src="https://unicorn-s3.b-cdn.net/Grey%20Minimalist%20Tips%20Blog%20Banner%20(3)-zechb.png" alt="imagenempleado">
+            </div>
+            
+        </div>
+        <div class="columna2">
+            <h1>Bienvenido</h1>
+            <form class="formulario">
+                <div class="datos-registro">
+                    <label for="nombre">Nombres:</label>
+                    <input type="text" id="nombre" class="input-nombre">
+                </div>
+    
+                <div class="datos-registro">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" class="input-apellidos">
+                </div>
+    
+                <div class="datos-registro">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" class="input-telefono">
+                </div>
+    
+                <div class="datos-registro">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" class="input-email">
+                </div>
+    
+                <div class="datos-registro">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" class="input-password">
+                </div>
+
+            </form>
+            <div class="btn-registro">
+                <input type="button" value="Guardar" onclick="actualizarDatos()">
+                <a href="productos.html"><input type="button" value="Regresar"></a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/Perfil-usuario.js"></script>
+
+<script>
+    function cargarDatos() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var datos = JSON.parse(this.responseText);
+                document.getElementById("nombre").value = datos.nombre;
+                document.getElementById("apellidos").value = datos.apellidos;
+                document.getElementById("telefono").value = datos.telefono;
+                document.getElementById("email").value = datos.email;
+                document.getElementById("contrasena").value = datos.contrasena;
+            }
+        };
+        xhttp.open("GET", "recuperar.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        cargarDatos();
+    };
+
+    function actualizarDatos() {
+        var nombre = document.getElementById("nombre").value;
+        var apellidos = document.getElementById("apellidos").value;
+        var telefono = document.getElementById("telefono").value;
+        var email = document.getElementById("email").value;
+        var contrasena = document.getElementById("contrasena").value;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+                
+        };
+        xhttp.open("POST", "actualizar.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("nombre=" + nombre + "&apellidos=" + apellidos + "&telefono=" + telefono + "&email=" + email + "&contrasena=" + contrasena);
+
+    }
+
+</script>
+
+</body>
+</html>
+

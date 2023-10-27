@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../css/Productos.css">
+    <!-- <script src="../js/carrito.js"></script> -->
+
+</head>
+<body>
+    <header>
+        <div class="enlaces-header">
+            <Strong><a href="Perfilusuario.html" >Mi perfil  </a></Strong>
+            <Strong><a href="login.html" >Cerrar sesión</a></Strong>
+            <strong><a href="inicio.html">Inicio</a></strong>            
+        </div>
+        <h1 class="products">productos</h1>
+        <div class="enlaces-header">
+            <Strong><a href="Productos.html" class="productos-header">Productos</a></Strong>
+            <Strong><a href="#">|</a></Strong>
+            <Strong><a href="Resumen_de_compra.html" class="carrito-header">Carrito <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                <path d="M17 17h-11v-14h-2"></path>
+                <path d="M6 5l14 1l-1 7h-13"></path>
+             </svg></span>
+            </a></Strong>
+        </div>
+    </header>
+
+        <!-- <nav class="categorias">
+            <h3>Categorias</h3>      
+            <label for="menu-bar" class="icon-menu"><input type="checkbox"> Lentes de medida</label>
+            <label for="menu-bar" class="icon-menu"><input type="checkbox"> Lentes de Sol</label> 
+            <label for="menu-bar" class="icon-menu"><input type="checkbox"> Lentes de Contacto</label>
+            <label for="menu-bar" class="icon-menu"><input type="checkbox"> Accesorios</label>
+        </nav> -->
+        <section class="container">
+            <!-- foreach  -->
+            <div class="productos" name="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <button type="submit" class="pagar">añadir</button>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div>
+            <!-- <div class="productos">
+                <h3>Lentes</h3>
+                <br/>
+                <img src="../img/lentes hombres de negro.jpg" alt="Image" width="250" height="200">
+                <div class="descripcion">
+                    <p>S/ 70.00</p>
+                    <a href="login.html"><button type="submit">añadir</button></a>
+                </div>
+            </div> -->
+    </section>
+
+    <div class="two columns u-pull-right">
+        <ul>
+            <li class="submenu">
+                    <img src="img/cart.png" id="img-carrito">
+                    <div id="carrito">              
+                            <table id="lista-carrito" class="u-full-width">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                    </div>
+            </li>
+        </ul>
+    </div>
+    
+
+</body>
+</html>
