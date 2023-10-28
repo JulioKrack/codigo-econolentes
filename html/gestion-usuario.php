@@ -13,12 +13,26 @@ function getUsuarios($conn) {
 
 if(isset($_GET['Id'])){
     $id= $_GET['Id'];
-    $sql = "UPDATE usuarios Set estado=2 WHERE Id = '$id'";
-    if ($conn->query($sql) === TRUE) {
-        header("Location:./gestion-usuario.php");
+    $sql="SELECT estado FROM usuarios WHERE Id='$id'";
+    $result = $conn->query($sql);   
+    $row = $result->fetch_assoc();
+    $estado = $row["estado"];
+    if ($estado == 2) {
+        $sql = "UPDATE usuarios Set estado=1 WHERE Id = '$id'";
+        if ($conn->query($sql) === TRUE) {
+            header("Location:./gestion-usuario.php");
+        } else {
+            echo "Error: Este usuario esta asignado con otras tablas " . $sql . "<br>" . $conn->error;
+        }
     } else {
-        echo "Error: Este usuario esta asignado con otras tablas " . $sql . "<br>" . $conn->error;
+        $sql = "UPDATE usuarios Set estado=2 WHERE Id = '$id'";
+        if ($conn->query($sql) === TRUE) {
+            header("Location:./gestion-usuario.php");
+        } else {
+            echo "Error: Este usuario esta asignado con otras tablas " . $sql . "<br>" . $conn->error;
+        }
     }
+
 }
 
 // Obtener todas las reservas existentes
@@ -80,7 +94,7 @@ $conn->close();
                     <td><?php echo $usuario['email']; ?></td>
                     <td><?php echo $usuario['estados'];?></td>
                     <td>
-                        <a href="gestion-usuario.php?Id=<?php echo $usuario['Id']; ?>">Banear</a>
+                        <a href="gestion-usuario.php?Id=<?php echo $usuario['Id']; ?>">Cambiar Estado</a>
                     </td>
                 </tr>
                     
