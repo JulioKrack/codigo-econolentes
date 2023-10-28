@@ -21,38 +21,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($emailExistsResult->num_rows === 1) {
         $row = $emailExistsResult->fetch_assoc();
-        if ($contrasena === $row["contrasena"]) {
-            $rol_id = $row["rol_id"];
-            $rolQuery = "SELECT rol FROM roles WHERE Id=$rol_id";
-            $rolResult = $conn->query($rolQuery);
-            if ($rolResult->num_rows === 1) {
-                $rolRow = $rolResult->fetch_assoc();
-                $rol = $rolRow["rol"];
+        $estado = $row["estado"];
+        
+        if ($estado == 2) {
+            echo "Tu cuenta ha sido desactivada. Por favor, contacta al administrador para más información.";
+        } else {
+            if ($contrasena === $row["contrasena"]) {
+                $rol_id = $row["rol_id"];
+                $rolQuery = "SELECT rol FROM roles WHERE Id=$rol_id";
+                $rolResult = $conn->query($rolQuery);
 
-
-                $_SESSION["user_id"] = $row["Id"]; 
-
-                if ($rol === "Vendedor") {
-                    $idUsuario = $row["Id"];
-                    header("Location: gestion-usuario.php?id=$idUsuario");
-                    exit();
-                } elseif ($rol === "Comprador") {
-                    $idUsuario = $row["Id"];
-                    header("Location: inicio.html?id=$idUsuario");
-                    exit();
+                if ($rolResult->num_rows === 1) {
+                    $rolRow = $rolResult->fetch_assoc();
+                    $rol = $rolRow["rol"];
+                    $_SESSION["user_id"] = $row["Id"];
+                    
+                    if ($rol === "Vendedor") {
+                        $idUsuario = $row["Id"];
+                        header("Location: gestion-usuario.php?id=$idUsuario");
+                        exit();
+                    } elseif ($rol === "Comprador") {
+                        $idUsuario = $row["Id"];
+                        header("Location: inicio.html?id=$idUsuario");
+                        exit();
+                    } else {
+                        echo "Rol desconocido: $rol";
+                    }
                 } else {
-                    echo "Rol desconocido: $rol";
+                    echo "No se pudo determinar el rol del usuario.";
                 }
             } else {
-                echo "No se pudo determinar el rol del usuario.";
+                echo "Credenciales incorrectas. Por favor, verifica tu contraseña.";
             }
-        } else {
-            echo "Credenciales incorrectas. Por favor, verifica tu contraseña.";
         }
     } else {
         echo "El correo electrónico ingresado no existe.";
     }
 }
+
 
 $conn->close();
 ?>
