@@ -53,14 +53,14 @@ $conn->close();
 <body>
     <header>
         <div class="enlaces">
-            <a href="Perfil empleado.html">Mi perfil</a>
+            <a href="Perfil empleado.html" >Mi perfil</a>
             <a href="login.html">Salir</a>
         </div>
 
         <h1 class = "titulo">Panel de Administración</h1>
         <div class="contenedor">
         <div class="gestiones">
-            <a href="gestion-usuario.php">Gestionar Usuarios</a>
+            <a href="gestion-usuario.php" class="gesu">Gestionar Usuarios</a>
             <a href="gestion-producto.html">Gestionar Productos</a>
         </div>
     </header>
@@ -94,7 +94,7 @@ $conn->close();
                     <td><?php echo $usuario['email']; ?></td>
                     <td><?php echo $usuario['estados'];?></td>
                     <td>
-                        <a href="gestion-usuario.php?Id=<?php echo $usuario['Id']; ?>">Cambiar Estado</a>
+                       <a class="ban" href="gestion-usuario.php?Id=<?php echo $usuario['Id']; ?>">Cambiar</a>
                     </td>
                 </tr>
                     

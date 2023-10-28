@@ -1,160 +1,163 @@
-body{
+/* Estilos generales para todos los dispositivos */
+body {
+    font-family: Arial, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    background-color: #c8e3e3;
 }
-/* para todos */
-header{
-    padding: 40px;
-    background: #E1E1E1;
-}
-body{
-    font-family: Arial, Helvetica, sans-serif;
-}
-.titulo{
+
+header {
+    background-color: #9ef6f6;
     text-align: center;
+    padding: 15px;
 }
 
+.enlaces {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    gap: 10px;
+    padding: 10px;
+}
 
-/* para las tablas de las gestiones */
-table{
+.enlaces a {
+    text-decoration: none;
+    background-color: #3043eb;
+    color: #000000;
+    border: 1px solid #2700c4;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.gestiones {
+    display: flex;
+    background-color: #63f6f6;
+    justify-content: space-evenly;
+    max-height: 100vh;
+    padding: 20px;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+}
+
+.gestiones a {
+    text-decoration: none;
+    color: #f6f6f6;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.gestiones a:hover {
+    background-color: #2600fd;
+}
+.gepo{
+    text-decoration: none;
+    background-color: #2600fd;
+    color: #f6f6f6;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+table {
     border: 2px solid black;
     border-collapse: collapse;
-  }
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.tabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
 th, td {
-    border: 1px solid black;
+    border: 1px solid rgb(3, 3, 3);
     border-collapse: collapse;
     text-align: center;
-    padding: 15px 55px;
+    padding: 15px 20px;
 }
-th{
+
+th {
     border: 3px solid black;
 }
 
-/* para el menu de las gestiones */
-.enlaces{
-    text-align: right;
-
-}
-.enlaces a{
-    text-decoration: none;
-    color: black;
-    padding-inline: 5px;
-}
-
-
-    /* .gestiones {
-        display: flex;
-        flex-direction: column;
-        height: 100vh; 
-        max-height: 100vh; 
-        width: 200px;
-        padding: 20px;
-        background-color: #f0f0f0; 
-        overflow-y: auto; 
-    }
-
-    .gestiones h2 {
-        margin: 10px 0; 
-        padding: 10px;
-        flex: 1;
-    } */
-
-
-.tabla{
-    padding: 15px;
-}
-
-/* para las selecciones de las gestiones */
-.usuario{
-    border:blue 2px solid;
-    background-color: #76C6F4 ;
-    background-size: cover;
-    text-decoration: none;
-}
-.producto{
-    border:blue 2px solid;
-    background-color: #76C6F4 ;
-    background-size: cover;
-    text-decoration: none;
-}
-.empleado{
-    border:blue 2px solid;
-    background-color: #76C6F4 ;
-    background-size: cover;
-    text-decoration: none;
-}
-
-/*diseño del boto*/
-.boton{
-    background-color: #0067A3;
-    font-size: 15px;
-    color: white;
-}
-
-/*para el formulario de las gestiones*/
-.filtrar{
+.buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     padding: 20px;
-    width: 93%;
-    height: 100%;
-    display: flex;
-    justify-content: right;
+    gap: 10px;
 }
 
-.ingreso-datos{
-    padding: 15px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.ingreso-datos label{
-    padding: 10px;
-    margin: 10px;
+.ban {
+    text-decoration: none;
+    background-color: #0f9bff;
+    color: #f6f6f6;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 3.5px;
+    cursor: pointer;
 }
 
-/* para el responsive*/
-@media (min-width: 1200px) {
-    /* .contenedor {
-        flex-direction: row;
-    } */
+/* Estilos para tamaños de pantalla de tablet (768px o superior) */
+@media (min-width: 768px) {
+    header {
+        padding: 20px; 
+    }
+
+    .enlaces {
+        padding: 15px 0; 
+    }
 
     .gestiones {
-        max-height: 100vh;
+        padding: 30px; 
     }
-
-    .tabla {
-        max-width: 70%; 
-    }
-
 }
 
-@media (max-width: 1199px) {
-    /* .contenedor {
-        flex-direction: column;
-    } */
-
-    .gestiones {
-        max-height: none;
-    }
-
-    .tabla {
-        max-width: 90%; 
-    }
-
-}
-
+/* Estilos para tamaños de pantalla de celular (hasta 767px) */
 @media (max-width: 767px) {
-    /* .contenedor {
-        flex-direction: column;
-    } */
+    header {
+        padding: 10px; 
+    }
+
+    .enlaces {
+        flex-direction: column; 
+        text-align: center;
+        padding: 10px 0; 
+        gap: 10px;
+    }
 
     .gestiones {
-        max-height: none;
+        flex-direction: column; 
+        text-align: center;
+        padding: 15px; 
+        gap: 10px;
+    }
+}
+
+
+/* Estilos para tamaños de pantalla de laptop (1200px o superior) */
+@media (min-width: 1200px) {
+    header {
+        padding: 25px; 
     }
 
-    .tabla {
-        max-width: 100%; 
+    .enlaces {
+        padding: 20px 0; 
     }
 
+    .gestiones {
+        padding: 35px; 
+    }
 }
